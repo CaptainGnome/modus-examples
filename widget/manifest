@@ -1,0 +1,9 @@
+{
+  "id": "com.modus.examples.widget",
+  "name": "Example Widget",
+  "version": "0.1.0",
+  "author": "modus",
+  "abi": 2,
+  "capabilities": ["ui.slot"],
+  "slots": ["web"]
+}

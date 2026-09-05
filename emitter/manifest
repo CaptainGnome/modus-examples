@@ -1,0 +1,9 @@
+{
+  "id": "com.modus.examples.emitter",
+  "name": "Example Emitter",
+  "version": "0.1.0",
+  "author": "modus",
+  "abi": 2,
+  "capabilities": ["bus.emit"],
+  "platform_id": "example-emitter"
+}

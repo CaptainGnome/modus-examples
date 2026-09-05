@@ -1,0 +1,14 @@
+{
+  "id": "com.modus.examples.connector",
+  "name": "Example Connector (replay)",
+  "version": "0.1.0",
+  "author": "modus",
+  "abi": 2,
+  "capabilities": ["auth.token", "net.http", "net.ws", "bus.emit", "media.cache"],
+  "platform_id": "example-connector",
+  "auth_mode": "pkce",
+  "client_id": "example-public-client-id",
+  "auth_url": "https://example.com/oauth/authorize",
+  "token_url": "https://example.com/oauth/token",
+  "hosts": ["example.com"]
+}

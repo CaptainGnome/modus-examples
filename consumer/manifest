@@ -1,0 +1,7 @@
+{
+  "id": "com.modus.examples.consumer",
+  "name": "Example Consumer",
+  "version": "0.1.0",
+  "author": "modus",
+  "abi": 2
+}

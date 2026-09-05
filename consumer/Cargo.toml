@@ -1,0 +1,15 @@
+[package]
+name = "consumer"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+modus-sdk = { path = "../../modus-sdk/guest", default-features = false, features = ["consumer"] }
+
+[profile.release]
+lto = true
+opt-level = "s"
+panic = "abort"
