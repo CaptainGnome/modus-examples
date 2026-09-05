@@ -34,7 +34,7 @@ impl Guest for Plugin {
             match wait::wait() {
                 Ready::Stop => return,
                 Ready::Act(req) => {
-                    modus_sdk::chat_complete::complete(&req.id, Err("нет соединения"));
+                    modus_sdk::chat_complete::complete(&req.id, Err("no connection"));
                 }
                 Ready::Bus(_)
                 | Ready::WsText(_)

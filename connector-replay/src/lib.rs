@@ -24,7 +24,7 @@ impl Guest for Plugin {
     fn run() {
         let accounts = auth_token::list_accounts();
         if accounts.is_empty() {
-            log::log(Level::Info, "нет аккаунта");
+            log::log(Level::Info, "no account");
             loop {
                 if matches!(wait::wait(), Ready::Stop) {
                     return;
@@ -42,12 +42,12 @@ fn run_account(account_id: &str) {
     loop {
         match run_session(account_id) {
             Outcome::Stopped => {
-                log::log(Level::Info, "остановлен");
+                log::log(Level::Info, "stopped");
                 return;
             }
             Outcome::Retry => {
                 if wait_backoff(backoff) {
-                    log::log(Level::Info, "остановлен");
+                    log::log(Level::Info, "stopped");
                     return;
                 }
                 backoff = next_backoff_ms(backoff);
@@ -72,7 +72,7 @@ fn run_session(account_id: &str) -> Outcome {
             }
             Ready::WsClosed(_) => {
                 let _ = net_ws::close(handle);
-                return fail("ws закрыт");
+                return fail("ws closed");
             }
             Ready::WsText(frame) => {
                 let payload = modus_sdk::text_message("dev", "dev", frame.text, None, None);
@@ -85,7 +85,7 @@ fn run_session(account_id: &str) -> Outcome {
                 }
             }
             Ready::Act(req) => {
-                modus_sdk::chat_complete::complete(&req.id, Err("нет соединения"));
+                modus_sdk::chat_complete::complete(&req.id, Err("no connection"));
             }
             Ready::Timer | Ready::Bus(_) | Ready::Settings | Ready::Resume | Ready::Ui(_) | Ready::MediaEnded(_)
                 | Ready::AlertPlay(_)
